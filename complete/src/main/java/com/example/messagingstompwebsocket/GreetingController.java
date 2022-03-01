@@ -18,8 +18,9 @@ public class GreetingController {
 	public Greeting greeting(HelloMessage message) throws Exception {
 		// simulated delay
 		Thread.sleep(1000);
-		logger.info("message:" + message);
-		return new Greeting("Hello, " + HtmlUtils.htmlEscape(message.getName()) + "!");
+		logger.info("message:" + message.getName());
+		//进行加3操作
+		return new Greeting("Hello, " + HtmlUtils.htmlEscape((Integer.parseInt(message.getName()) + 1) + "!"));
 	}
 
 }
