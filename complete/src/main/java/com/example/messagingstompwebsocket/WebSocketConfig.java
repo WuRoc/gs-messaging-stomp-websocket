@@ -12,12 +12,15 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
 	@Override
 	public void configureMessageBroker(MessageBrokerRegistry config) {
+		//客户端接收的前缀
 		config.enableSimpleBroker("/topic");
+		//服务器接收时的前缀
 		config.setApplicationDestinationPrefixes("/app");
 	}
 
 	@Override
 	public void registerStompEndpoints(StompEndpointRegistry registry) {
+		//var socket = new SockJS('/gs-guide-websocket'); JS端的对象
 		registry.addEndpoint("/gs-guide-websocket").withSockJS();
 	}
 
